@@ -22,18 +22,14 @@ public class Main {
 
         // 수식
         for(int i = 0; i < 9; i++) {
-            for(int j = 0; j < 9; j++) {
-                if(i == j) {
-                    continue;
-                }
-
+            for(int j = i; j < 9; j++) {
                 if((totalHeight - (dwarfs[i] + dwarfs[j])) == 100){
                     fake1 = i;
                     fake2 = j;
                     break;
                 }
             }
-            if(fake1 != -1) break; // 중요!
+            if(fake1 != -1) break;
         }
 
         StringBuilder sb = new StringBuilder();
