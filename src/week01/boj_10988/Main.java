@@ -7,24 +7,14 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String voca = br.readLine();
-        char[] s = new char[101];
-        String palindrom = "";
 
-        int i = 1;
-        for(char c : voca.toCharArray()) {
-            s[i] = c;
-            i++;
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = voca.length() - 1; i >=0; i--) {
+            sb.append(voca.charAt(i));
         }
 
-        for(int j = 100; j > 0; j--) {
-            if(s[j] == 0) {
-                continue;
-            } else {
-                palindrom += String.valueOf(s[j]);
-            }
-        }
-
-        if(voca.equals(palindrom)) {
+        if(voca.equals(sb.toString())){
             System.out.println(1);
         } else {
             System.out.println(0);
