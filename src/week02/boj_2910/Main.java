@@ -21,7 +21,7 @@ public class Main {
             numSeq.put(input, numSeq.getOrDefault(input, i));
         }
 
-        List<Map.Entry<Integer, Integer>> entryList = new LinkedList<>(numCount.entrySet());
+        List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(numCount.entrySet());
         entryList.sort((o1, o2) -> {
             // 빈도수(Value)가 다르다면 내림차순 정렬
             if (!o1.getValue().equals(o2.getValue())) {
@@ -30,6 +30,31 @@ public class Main {
             // 빈도수가 같다면 등장 순서(numSeq)를 기준으로 오름차순 정렬
             return numSeq.get(o1.getKey()).compareTo(numSeq.get(o2.getKey()));
         });
+
+        /*
+            메서드 체이닝 방식 + 람다
+            entryList.sort(
+                Comparator.comparing((Map.Entry<Integer, Integer> e) -> e.getValue()) // 1. 람다식으로 Value 추출
+                        .reversed()                                               // 2. 내림차순
+                        .thenComparing(e -> numSeq.get(e.getKey()))               // 3. numSeq 기준 오름차순
+            );
+
+            메서드 체이닝 방식 + 메서드 참조 방식
+            entryList.sort(
+                Comparator.comparing(Map.Entry<Integer, Integer>::getValue) // 1. Value 추출
+                        .reversed()                                      // 2. 내림차순(Value)
+                        .thenComparing(e -> numSeq.get(e.getKey()))      // 3. 같으면 numSeq 오름차순
+            );
+
+         */
+
+        /*
+            메서드 참조 방식
+            entryList.sort(
+                Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()) // 1+2. Value 내림차순
+                        .thenComparing(e -> numSeq.get(e.getKey()))                // 3. numSeq 오름차순
+            );
+         */
 
         StringBuilder sb = new StringBuilder();
         for(Map.Entry<Integer, Integer> entry : entryList) {
