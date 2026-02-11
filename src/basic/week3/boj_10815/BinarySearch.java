@@ -1,4 +1,4 @@
-package basic.boj_10815;
+package basic.week3.boj_10815;
 
 import java.util.*;
 import java.io.*;
