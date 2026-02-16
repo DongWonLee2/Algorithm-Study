@@ -42,7 +42,7 @@ public class Main {
             int[] DP = new int[exM + 1];
 
             int max = 0;
-            for(int i = 1; i <= exM; i++) {
+            for(int i = candyList.get(0).price; i <= exM; i++) {
                 for(Candy c : candyList) {
                     int currCal = c.calorie;
                     int currPrice = c.price;
