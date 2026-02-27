@@ -15,7 +15,7 @@ public class Main {
         result = new int[M];
         visited = new boolean[N + 1];
 
-        solve(0, 0);
+        solve(0, 1);
 
         System.out.print(sb);
     }
@@ -29,8 +29,8 @@ public class Main {
             return;
         }
 
-        for(int i = 1; i <= N; i++) {
-            if(!visited[i] && i > last) {
+        for(int i = last; i <= N; i++) {
+            if(!visited[i]) {
                 visited[i] = true;
                 result[count] = i;
                 solve(count + 1, i);
