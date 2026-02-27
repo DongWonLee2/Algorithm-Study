@@ -54,7 +54,6 @@ public class Main {
         for(int i = 0; i < n; i++) {
             int count = 1;
             for(int j = 1; j < n; j++) {
-                if(i == 0 && j == 0) continue;
                 if(map[i][j] == map[i][j - 1]) count++;
                 else {
                     max = Math.max(max, count);
