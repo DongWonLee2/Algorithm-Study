@@ -32,7 +32,7 @@ public class Main {
                     isGroup = false;
                     break;
                 }
-                lastC = str.charAt(j);
+                lastC = curr;
             }
             if (!isGroup) {
                 break;
