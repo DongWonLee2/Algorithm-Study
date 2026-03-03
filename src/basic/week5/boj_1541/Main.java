@@ -20,7 +20,7 @@ public class Main {
             }
 
             if(result == Integer.MAX_VALUE) {
-                result = sum;
+                result = sum; // 초기값(양수)로 세팅
             } else {
                 result -= sum;
             }
