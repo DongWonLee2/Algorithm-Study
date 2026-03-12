@@ -51,19 +51,19 @@ public class Main {
             r = r + dr[d];
             c = c + dc[d];
 
+            time++;
             if(r < 1 || r > n || c < 1 || c > n || map[r][c] == 1) {
-                time++;
                 break;
             }
 
+            boolean apple = (map[r][c] == 2);  // 먼저 확인
             dq.offerFirst(new int[] {r, c});
             map[r][c] = 1;
-            if(map[r][c] == 0) {
+            if(!apple) {
                 int[] tail = dq.pollLast();
                 map[tail[0]][tail[1]] = 0;
             }
 
-            time++;
             if(info.containsKey(time)) {
                 char dir = info.get(time);
                 if(dir == 'L') {
