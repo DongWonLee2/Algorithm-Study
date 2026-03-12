@@ -50,11 +50,11 @@ public class Main {
                 w++;
                 eatC = 0;
             }
-            map[shark[0]][shark[1]] = 0;
+            map[shark[0]][shark[1]] = 0; // 원래 상어 위치 비우기
             shark[0] = destR;
             shark[1] = destC;
             shark[2] = w;
-            map[shark[0]][shark[1]] = 0;
+            map[shark[0]][shark[1]] = 0; // 먹은 물고기 제거
         }
 
         System.out.print(time);
